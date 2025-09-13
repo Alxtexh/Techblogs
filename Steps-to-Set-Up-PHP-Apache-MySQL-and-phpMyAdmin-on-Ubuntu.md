@@ -9,7 +9,7 @@ Setting up a LAMP stack (Linux, Apache, MySQL, PHP) on Ubuntu is a common task f
 First, ensure your system is up to date:
 
 ```bash
-sudo apt update && sudo apt upgrade
+sudo apt update && sudo apt upgrade -y
 ```
 
 ### Install Apache
@@ -308,11 +308,11 @@ sudo nano /etc/apache2/sites-available/mikrolink.conf
 
 ```bash
 <VirtualHost *:80>
-    ServerAdmin webmaster@mikrol.ink
-    ServerName mikrol.ink
-    DocumentRoot /var/www/html/MiroTikLink/public
+    ServerAdmin webmaster@drift.net
+    ServerName drift.net
+    DocumentRoot /var/www/html/drift
 
-    <Directory /var/www/html/MiroTikLink>
+    <Directory /var/www/html/drift>
         Options Indexes FollowSymLinks
         AllowOverride All
         Require all granted
@@ -324,7 +324,7 @@ sudo nano /etc/apache2/sites-available/mikrolink.conf
 ```
 
 ```bash
-sudo a2ensite mikrolink.conf
+sudo a2ensite driftnet.conf
 ```
 
 ```bash
