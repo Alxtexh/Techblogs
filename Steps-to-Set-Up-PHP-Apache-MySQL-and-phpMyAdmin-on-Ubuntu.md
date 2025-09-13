@@ -96,7 +96,7 @@ sudo apachectl -v
 Install MySQL
 
 ```bash
-sudo apt install mysql-server
+sudo apt install mariadb-server
 ```
 
 Secure MySQL Installation
@@ -107,7 +107,7 @@ sudo mysql_secure_installation
 
 Follow the prompts to secure your installation.
 
-Yes -> 0 -> Yes -> Yes -> Yes
+ Enter -> y -> Y -> Yes -> Yes
 
 Set the marchine password for MySQL and ignore 
 
