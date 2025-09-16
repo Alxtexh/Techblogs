@@ -174,7 +174,7 @@ Access Php
 
 # Install Certbot for https 
 ```
-sudo apt install certbot python3-certbot-apache2
+sudo apt install certbot python3-certbot-apache
 ```
 # Set ssl for specific domain
 ```
