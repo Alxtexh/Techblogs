@@ -1,4 +1,4 @@
-# Steps to Set Up PHP, Apache, MySQL, and phpMyAdmin on Ubuntu
+# Steps to Set Up LAMP LInux-PHP, Apache, Mariadb, and phpMyAdmin on Ubuntu
 
 Setting up a LAMP stack (Linux, Apache, MySQL, PHP) on Ubuntu is a common task for developers. This guide will walk you through the steps to install and configure Apache, MySQL, PHP, and phpMyAdmin on an Ubuntu system.
 
