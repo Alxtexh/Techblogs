@@ -26,15 +26,8 @@ Set up the Uncomplicated Firewall (UFW) to allow public access on default web po
 
 ```bash
 sudo ufw allow 'Apache'
-```
-
-Enbale Apache Full
-
-
-```bash
 sudo ufw allow 'Apache Full'
 ```
-
 allow 22/tcp port for SSH
 
 ```bash
@@ -69,20 +62,8 @@ sudo systemctl status apache2
 Start Apache
 ```bash
 sudo systemctl start apache2
-```
-
-Stop Apache
-```bash
 sudo systemctl stop apache2
-```
-
-Restart Apache
-```bash
 sudo systemctl restart apache2
-```
-
-Reload Apache
-```bash
 sudo systemctl reload apache2
 ```
 
@@ -107,43 +88,8 @@ sudo mysql_secure_installation
 
 Follow the prompts to secure your installation.
 
- Enter -> y -> Y -> Yes -> Yes
+ Enter -> y -> Y -> setpassword (kenya@2025) -> Y -> Y -> Y -> Y
 
-Set the marchine password for MySQL and ignore 
-
-
-### Create a new user and grant privileges
-
-Access Mysql
-
-```bash
-sudo mysql
-```
-Creat User 
-
-Replace dbusername with your desired username and dbpassword with your desired password
-
-```bash
-CREATE USER 'dbusername'@'localhost' IDENTIFIED BY 'dbpassword';
-```
-
-Grant privileges
-
-```bash
-GRANT ALL PRIVILEGES ON *.* TO 'dbusername'@'localhost';
-```
-
-Flush privileges
-
-```bash
-FLUSH PRIVILEGES;
-```
-
-Exit MySQL
-
-```bash
-exit
-```
 
 ### MySQL Management Commands
 
@@ -157,20 +103,9 @@ Start MySQL
 
 ```bash
 sudo systemctl start mysql
-```
-
-Stop MySQL
-
-```bash
 sudo systemctl stop mysql
-```
-
-Restart MySQL
-
-```bash
 sudo systemctl restart mysql
 ```
-
 ## Steps 3 Install PHP
 
 Install PHP
@@ -196,18 +131,7 @@ php -v
 Configure PHP
 
 ```bash
-sudo nano /etc/php/8.2/apache2/php.ini
-```
-
-Change the following lines
-
-```bash
-upload_max_filesize = 32M 
-post_max_size = 48M 
-memory_limit = 256M 
-max_execution_time = 600 
-max_input_vars = 3000 
-max_input_time = 1000
+sudo sed -i 's/^upload_max_filesize.*/upload_max_filesize = 50M/; s/^post_max_size.*/post_max_size = 58M/; s/^memory_limit.*/memory_limit = 256M/; s/^max_execution_time.*/max_execution_time = 600/; s/^max_input_vars.*/max_input_vars = 3000/; s/^max_input_time.*/max_input_time = 1000/' /etc/php/8.2/fpm/php.ini
 ```
 
 Restart Apache
@@ -248,8 +172,14 @@ Access Php
   http://sever-ip/phpmyadmin
   ```
 
-
-
+# Install Certbot for https 
+```
+sudo apt install certbot python3-certbot-apache2
+```
+# Set ssl for specific domain
+```
+sudo certbot --apache2
+```
 
 
 # ADDITIONAL SERVER CONFIGURATION 
